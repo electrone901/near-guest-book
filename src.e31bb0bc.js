@@ -38163,6 +38163,8 @@ const App = ({
 
     contract.addMessage({
       text: message.value
+    }, {
+      time: "Nov 20"
     }, BOATLOAD_OF_GAS, (0, _big.default)(donation.value || '0').times(10 ** 24).toFixed()).then(() => {
       contract.getMessages().then(messages => {
         setMessages(messages);
@@ -58105,7 +58107,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55053" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62824" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
