@@ -38162,8 +38162,7 @@ const App = ({
     // add uuid to each message, so we know which one is already known
 
     contract.addMessage({
-      text: message.value
-    }, {
+      text: message.value,
       time: "Nov 20"
     }, BOATLOAD_OF_GAS, (0, _big.default)(donation.value || '0').times(10 ** 24).toFixed()).then(() => {
       contract.getMessages().then(messages => {
