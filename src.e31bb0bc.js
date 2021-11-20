@@ -32461,9 +32461,12 @@ const App = ({
   nearConfig,
   wallet
 }) => {
+  console.log("contract", contract);
   const [messages, setMessages] = (0, _react.useState)([]);
-  (0, _react.useEffect)(() => {
+  (0, _react.useEffect)(async () => {
     // TODO: don't just fetch once; subscribe!
+    const t = await contract.getMessages();
+    console.log("t", t);
     contract.getMessages().then(setMessages);
   }, []);
 
@@ -52422,7 +52425,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54006" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55013" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
