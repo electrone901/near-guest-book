@@ -92120,7 +92120,8 @@ const App = ({
   };
 
   const signOut = () => {
-    wallet.signOut();
+    wallet.signOut(); // eslint-disable-next-line no-undef
+
     window.location.replace(window.location.origin + window.location.pathname);
   };
 
@@ -92130,16 +92131,16 @@ const App = ({
       minHeight: '78vh',
       paddingBottom: '3rem'
     }
-  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, " NEAR Guest Book "), " ", /*#__PURE__*/_react.default.createElement("h1", null, "Enter your suggestions for NEAR events.hackathons and workshops proposal for ", ' ', " "), " ", /*#__PURE__*/_react.default.createElement("p", null, " Ex: I would like to see "), currentUser ? /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, " NEAR Guest Book "), /*#__PURE__*/_react.default.createElement("h1", null, "Enter your suggestions for NEAR events! proposal for"), /*#__PURE__*/_react.default.createElement("p", null, " Ex: I would like to see more (hackathons and workshops)"), currentUser ? /*#__PURE__*/_react.default.createElement("button", {
     onClick: signOut
   }, " Log out ") : /*#__PURE__*/_react.default.createElement("button", {
     onClick: signIn
-  }, " Log in "), " "), " ", currentUser ? /*#__PURE__*/_react.default.createElement(_Form.default, {
+  }, " Log in ")), "\xA0", currentUser ? /*#__PURE__*/_react.default.createElement(_Form.default, {
     onSubmit: onSubmit,
     currentUser: currentUser
-  }) : /*#__PURE__*/_react.default.createElement(_SignIn.default, null), " ", !!currentUser && !!messages.length && /*#__PURE__*/_react.default.createElement(_Messages.default, {
+  }) : /*#__PURE__*/_react.default.createElement(_SignIn.default, null), !!currentUser && !!messages.length && /*#__PURE__*/_react.default.createElement(_Messages.default, {
     messages: messages
-  }), " "), " "), " ", /*#__PURE__*/_react.default.createElement(_Footer.default, null));
+  }))), /*#__PURE__*/_react.default.createElement(_Footer.default, null));
 };
 
 App.propTypes = {
@@ -92162,7 +92163,7 @@ App.propTypes = {
 var _default = App;
 exports.default = _default;
 },{"regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","big.js":"../node_modules/big.js/big.js","./components/Form":"components/Form.jsx","./components/SignIn":"components/SignIn.jsx","./components/Messages":"components/Messages.jsx","moment":"../node_modules/moment/moment.js","./footer/Footer":"footer/Footer.js","./navbar/Navbar":"navbar/Navbar.js","@material-ui/core":"../node_modules/@material-ui/core/esm/index.js"}],"config.js":[function(require,module,exports) {
-const CONTRACT_NAME = "dev-1637423378996-79409494674674" || '0test.testnet';
+const CONTRACT_NAME = undefined || '0test.testnet';
 
 function getConfig(env) {
   switch (env) {
@@ -112052,7 +112053,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50504" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60496" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
