@@ -37,6 +37,22 @@ html .listitem1 {
 html .author {
   font-size: 0.7rem;
 }
+html .form-card {
+  padding: 2rem;
+  padding-top: 1rem;
+  width: 800px;
+  margin: 0 auto;
+}
+html .form-content {
+  text-align: center;
+  margin: 0 auto;
+}
+html .btn-sign {
+  width: 7rem;
+  background-color: #0ac960;
+  color: white;
+  border-color: #0ac960;
+}
 @media (prefers-color-scheme: dark) {
   html {
     --bg: #25282a;

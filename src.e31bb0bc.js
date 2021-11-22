@@ -32323,88 +32323,7 @@ var define;
   }
 })(this);
 
-},{}],"components/Form.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = Form;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _big = _interopRequireDefault(require("big.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Form({
-  onSubmit,
-  currentUser
-}) {
-  return /*#__PURE__*/_react.default.createElement("form", {
-    onSubmit: onSubmit
-  }, /*#__PURE__*/_react.default.createElement("fieldset", {
-    id: "fieldset"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Sign the guest book, ", currentUser.accountId, "!"), /*#__PURE__*/_react.default.createElement("p", {
-    className: "highlight"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "message"
-  }, "Tittle:"), /*#__PURE__*/_react.default.createElement("input", {
-    autoComplete: "off",
-    autoFocus: true,
-    id: "title",
-    required: true
-  })), /*#__PURE__*/_react.default.createElement("p", {
-    className: "highlight"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "message"
-  }, "Message:"), /*#__PURE__*/_react.default.createElement("input", {
-    autoComplete: "off",
-    autoFocus: true,
-    id: "message",
-    required: true
-  })), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "donation"
-  }, "Donation (optional):"), /*#__PURE__*/_react.default.createElement("input", {
-    autoComplete: "off",
-    defaultValue: '0',
-    id: "donation",
-    max: (0, _big.default)(currentUser.balance).div(10 ** 24),
-    min: "0",
-    step: "0.01",
-    type: "number"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    title: "NEAR Tokens"
-  }, "\u24C3")), /*#__PURE__*/_react.default.createElement("button", {
-    type: "submit"
-  }, "Sign")));
-}
-
-Form.propTypes = {
-  onSubmit: _propTypes.default.func.isRequired,
-  currentUser: _propTypes.default.shape({
-    accountId: _propTypes.default.string.isRequired,
-    balance: _propTypes.default.string.isRequired
-  })
-};
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","big.js":"../node_modules/big.js/big.js"}],"components/SignIn.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = SignIn;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function SignIn() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("p", null, "This app demonstrates a key element of NEAR\u2019s UX: once an app has permission to make calls on behalf of a user (that is, once a user signs in), the app can make calls to the blockhain for them without prompting extra confirmation. So you\u2019ll see that if you don\u2019t include a donation, your message gets posted right to the guest book."), /*#__PURE__*/_react.default.createElement("p", null, "But if you do add a donation, then NEAR will double-check that you\u2019re ok with sending money to this app."), /*#__PURE__*/_react.default.createElement("p", null, "Go ahead and sign in to try it out!"));
-}
-},{"react":"../node_modules/react/index.js"}],"../node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
+},{}],"../node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42369,7 +42288,99 @@ Object.defineProperty(exports, "default", {
 var _Card = _interopRequireDefault(require("./Card"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Card":"../node_modules/@material-ui/core/esm/Card/Card.js"}],"../node_modules/@material-ui/core/esm/utils/setRef.js":[function(require,module,exports) {
+},{"./Card":"../node_modules/@material-ui/core/esm/Card/Card.js"}],"components/Form.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Form;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _big = _interopRequireDefault(require("big.js"));
+
+var _Card = _interopRequireDefault(require("@material-ui/core/Card"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Form({
+  onSubmit,
+  currentUser,
+  displayForm
+}) {
+  console.log('🚀 ~ file: Form.jsx ~ line 7 ~ Form ~ displayForm', displayForm);
+  return /*#__PURE__*/_react.default.createElement(_Card.default, {
+    className: "form-card"
+  }, /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: onSubmit,
+    className: "form-content"
+  }, /*#__PURE__*/_react.default.createElement("fieldset", {
+    id: "fieldset"
+  }, /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      textAlign: 'justify'
+    }
+  }, "Enter your suggestions for a NEAR event, if we think is a good idea we might go ahead and make it. You are allow to make only one proposal."), /*#__PURE__*/_react.default.createElement("p", {
+    className: "highlight"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    autoComplete: "off",
+    autoFocus: true,
+    id: "title",
+    placeholder: "Tittle",
+    required: true
+  })), /*#__PURE__*/_react.default.createElement("p", {
+    className: "highlight"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    autoComplete: "off",
+    autoFocus: true,
+    id: "message",
+    placeholder: "I would like to see more workshops on smart contracts",
+    required: true
+  })), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "donation"
+  }, "Donation (optional):"), /*#__PURE__*/_react.default.createElement("input", {
+    autoComplete: "off",
+    defaultValue: '0',
+    id: "donation",
+    max: (0, _big.default)(currentUser.balance).div(10 ** 24),
+    min: "0",
+    step: "0.01",
+    type: "number"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    title: "NEAR Tokens"
+  }, "\u24C3")), /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit",
+    className: "btn-sign",
+    disabled: displayForm
+  }, "Submit"))));
+}
+
+Form.propTypes = {
+  onSubmit: _propTypes.default.func.isRequired,
+  currentUser: _propTypes.default.shape({
+    accountId: _propTypes.default.string.isRequired,
+    balance: _propTypes.default.string.isRequired
+  })
+};
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","big.js":"../node_modules/big.js/big.js","@material-ui/core/Card":"../node_modules/@material-ui/core/esm/Card/index.js"}],"components/SignIn.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SignIn;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function SignIn() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("p", null, "This app demonstrates a key element of NEAR\u2019s UX: once an app has permission to make calls on behalf of a user (that is, once a user signs in), the app can make calls to the blockhain for them without prompting extra confirmation. So you\u2019ll see that if you don\u2019t include a donation, your message gets posted right to the guest book."), /*#__PURE__*/_react.default.createElement("p", null, "But if you do add a donation, then NEAR will double-check that you\u2019re ok with sending money to this app."), /*#__PURE__*/_react.default.createElement("p", null, "Go ahead and sign in to try it out!"));
+}
+},{"react":"../node_modules/react/index.js"}],"../node_modules/@material-ui/core/esm/utils/setRef.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47736,10 +47747,9 @@ function Messages({
   messages
 }) {
   const orderMessages = messages.reverse();
-  console.log('What orderMessages', orderMessages);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h2", null, "Messages"), messages.map((message, i) =>
+  }, /*#__PURE__*/_react.default.createElement("h2", null, "Existing proposals"), messages.map((message, i) =>
   /*#__PURE__*/
   // TODO: format as cards, add timestamp
   _react.default.createElement("div", {
@@ -47753,7 +47763,7 @@ function Messages({
     alt: "Remy Sharp",
     src: "/static/images/avatar/1.jpg"
   })), /*#__PURE__*/_react.default.createElement(_ListItemText.default, {
-    primary: "Brunch this weekend?",
+    primary: message.title,
     className: "listitem1",
     secondary: /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Typography.default, {
       component: "span",
@@ -91889,9 +91899,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/2.png":[function(require,module,exports) {
-module.exports = "/2.2c7fcc9e.png";
-},{}],"navbar/Navbar.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"navbar/Navbar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -91935,7 +91943,7 @@ var _styles = require("@material-ui/core/styles");
 
 require("./Navbar.css");
 
-var _ = _interopRequireDefault(require("../assets/2.png"));
+var _near = _interopRequireDefault(require("../assets/near.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -91944,7 +91952,6 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 // import { Link, withRouter } from 'react-router-dom'
-// import logo from '../assets/near.png'
 const Navbar = ({
   logout,
   account
@@ -92040,7 +92047,7 @@ const Navbar = ({
     to: "/",
     className: "whiteLink"
   }, /*#__PURE__*/_react.default.createElement("img", {
-    src: _.default,
+    src: _near.default,
     alt: "logo",
     className: "logo"
   })), /*#__PURE__*/_react.default.createElement(_Button.default, {
@@ -92076,7 +92083,7 @@ const Navbar = ({
 };
 
 exports.Navbar = Navbar;
-},{"react":"../node_modules/react/index.js","@material-ui/core/Button":"../node_modules/@material-ui/core/esm/Button/index.js","@material-ui/core/AppBar":"../node_modules/@material-ui/core/esm/AppBar/index.js","@material-ui/core/Toolbar":"../node_modules/@material-ui/core/esm/Toolbar/index.js","@material-ui/core/IconButton":"../node_modules/@material-ui/core/esm/IconButton/index.js","@material-ui/core/Typography":"../node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/icons/VerifiedUserSharp":"../node_modules/@material-ui/icons/VerifiedUserSharp.js","@material-ui/core/InputBase":"../node_modules/@material-ui/core/esm/InputBase/index.js","@material-ui/core/Badge":"../node_modules/@material-ui/core/esm/Badge/index.js","@material-ui/core/MenuItem":"../node_modules/@material-ui/core/esm/MenuItem/index.js","@material-ui/core/Menu":"../node_modules/@material-ui/core/esm/Menu/index.js","@material-ui/icons/Search":"../node_modules/@material-ui/icons/Search.js","@material-ui/icons/AccountCircle":"../node_modules/@material-ui/icons/AccountCircle.js","@material-ui/icons/Mail":"../node_modules/@material-ui/icons/Mail.js","@material-ui/icons/Notifications":"../node_modules/@material-ui/icons/Notifications.js","@material-ui/icons/MoreVert":"../node_modules/@material-ui/icons/MoreVert.js","@material-ui/core/styles":"../node_modules/@material-ui/core/esm/styles/index.js","./Navbar.css":"navbar/Navbar.css","../assets/2.png":"assets/2.png"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@material-ui/core/Button":"../node_modules/@material-ui/core/esm/Button/index.js","@material-ui/core/AppBar":"../node_modules/@material-ui/core/esm/AppBar/index.js","@material-ui/core/Toolbar":"../node_modules/@material-ui/core/esm/Toolbar/index.js","@material-ui/core/IconButton":"../node_modules/@material-ui/core/esm/IconButton/index.js","@material-ui/core/Typography":"../node_modules/@material-ui/core/esm/Typography/index.js","@material-ui/icons/VerifiedUserSharp":"../node_modules/@material-ui/icons/VerifiedUserSharp.js","@material-ui/core/InputBase":"../node_modules/@material-ui/core/esm/InputBase/index.js","@material-ui/core/Badge":"../node_modules/@material-ui/core/esm/Badge/index.js","@material-ui/core/MenuItem":"../node_modules/@material-ui/core/esm/MenuItem/index.js","@material-ui/core/Menu":"../node_modules/@material-ui/core/esm/Menu/index.js","@material-ui/icons/Search":"../node_modules/@material-ui/icons/Search.js","@material-ui/icons/AccountCircle":"../node_modules/@material-ui/icons/AccountCircle.js","@material-ui/icons/Mail":"../node_modules/@material-ui/icons/Mail.js","@material-ui/icons/Notifications":"../node_modules/@material-ui/icons/Notifications.js","@material-ui/icons/MoreVert":"../node_modules/@material-ui/icons/MoreVert.js","@material-ui/core/styles":"../node_modules/@material-ui/core/esm/styles/index.js","./Navbar.css":"navbar/Navbar.css","../assets/near.png":"assets/near.png"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -92121,15 +92128,25 @@ const App = ({
   nearConfig,
   wallet
 }) => {
-  console.log('contract', contract);
+  console.log('currentUser', currentUser.accountId);
   const [messages, setMessages] = (0, _react.useState)([]);
+  const [displayForm, setDisplayForm] = (0, _react.useState)(false);
   (0, _react.useEffect)(async () => {
     const DATE_TIME_FORMAT = 'YYYY-MM-DDTHH:mm';
     const timeNow = (0, _moment.default)(new Date(), DATE_TIME_FORMAT); // TODO: don't just fetch once; subscribe!
 
-    const t = await contract.getMessages();
-    console.log('t', t);
-    contract.getMessages().then(setMessages);
+    const messageResp = await contract.getMessages();
+    console.log('messageResp', messageResp);
+    contract.getMessages().then(setMessages); // check if user already exist as a sende setDisplayForm(false)
+
+    for (let ele of messageResp) {
+      console.log('🚀 ~ file: App.js ~ line 69 ~ contract.getMessages ~ ele', ele.sender);
+
+      if (ele.sender == currentUser.accountId) {
+        console.log('EXISTr____________________', currentUser);
+        setDisplayForm(true);
+      }
+    }
   }, []);
 
   const onSubmit = e => {
@@ -92179,13 +92196,12 @@ const App = ({
       minHeight: '78vh',
       paddingBottom: '3rem'
     }
-  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, " NEAR Guest Book "), /*#__PURE__*/_react.default.createElement("h1", null, "Enter your suggestions for NEAR events! proposal for"), /*#__PURE__*/_react.default.createElement("p", null, " Ex: I would like to see more (hackathons and workshops)"), currentUser ? /*#__PURE__*/_react.default.createElement("button", {
-    onClick: signOut
-  }, " Log out ") : /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement("h1", null, " NEAR Events Proposals"), currentUser ? '' : /*#__PURE__*/_react.default.createElement("button", {
     onClick: signIn
-  }, " Log in ")), "\xA0", currentUser ? /*#__PURE__*/_react.default.createElement(_Form.default, {
+  }, " Log in ")), currentUser ? /*#__PURE__*/_react.default.createElement(_Form.default, {
     onSubmit: onSubmit,
-    currentUser: currentUser
+    currentUser: currentUser,
+    displayForm: displayForm
   }) : /*#__PURE__*/_react.default.createElement(_SignIn.default, null), !!currentUser && !!messages.length && /*#__PURE__*/_react.default.createElement(_Messages.default, {
     messages: messages
   }))), /*#__PURE__*/_react.default.createElement(_Footer.default, null));
@@ -112101,7 +112117,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63054" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51985" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
